@@ -14,3 +14,7 @@ value_deserializer: org.springframework.kafka.support.serializer.JsonDeserialize
 key_serializer: org.apache.kafka.common.serialization.StringSerializer
 value_serializer: org.springframework.kafka.support.serializer.JsonSerializer
 trusted_packages: *
+
+#Zipkin configuration
+zipkin_server_url: http://localhost:9411/
+zipkin_sampler_probability: 0.1
