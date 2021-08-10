@@ -1,0 +1,2 @@
+zipkin_server_url: http://localhost:9411/
+zipkin_sampler_probability: 0.1
