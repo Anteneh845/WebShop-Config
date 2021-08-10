@@ -9,7 +9,7 @@ mongodb_port: 27017
 # Kafka Configuration
 bootstrap_servers: localhost:9092
 auto_offset_reset: earliest
-key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+key_deserializer: org.apache.kafka.common.serialization.StringDeserializer
 value_deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 key_serializer: org.apache.kafka.common.serialization.StringSerializer
 value_serializer: org.springframework.kafka.support.serializer.JsonSerializer
