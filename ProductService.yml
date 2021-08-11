@@ -1,1 +1,2 @@
 database: ProductDB
+spring.data.mongodb.database: ProductDB
