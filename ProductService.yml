@@ -1,2 +1,4 @@
 database: ProductDB
 spring.data.mongodb.database: ProductDB
+spring.data.mongodb.host: localhost
+spring.data.mongodb.port: 27017
