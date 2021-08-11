@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: ApiGateway
+  zipkin:
+    base-url: http://localhost:9411/
+  cloud:
+    gateway:
+      routes:
+        - id: customerModule
+          uri: http://localhost:8090
+          predicates:
+            - Path=/customers/**
+        - id: shoppingQueryModule
+          uri: lb://ShoppingQueryService/
+          predicates:
+            - Path=/shoppingCartQueries/**
+        - id: shoppingCommandModule
+          uri: lb://ShoppingCommandService/
+          predicates:
+            - Path=/shoppingCartCommands/**
+        - id: productModule
+          uri: http://localhost:8091/
+          predicates:
+            - Path=/products/**
+        - id: orderModule
+          uri: http://localhost:8094
+          predicates:
+            - Path=/orders/**
+  sleuth:
+    sampler:
+      probability: 0.1
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+server:
+  port: 8080
