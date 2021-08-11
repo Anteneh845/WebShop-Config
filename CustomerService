@@ -1,0 +1,36 @@
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+server:
+    port: 8090
+spring:
+    application:
+        name: CustomerService
+    data:
+        mongodb:
+            database: CustomerDB
+            host: localhost
+            port: 27017
+    kafka:
+        bootstrap-servers: localhost:9092
+        consumer:
+            auto-offset-reset: earliest
+            group-id: gid
+            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            properties:
+                spring:
+                    json:
+                        trusted:
+                            packages: '*'
+            value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+        producer:
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    main:
+        allow-bean-definition-overriding: true
+    sleuth:
+        sampler:
+            probability: 0.1
+    zipkin:
+        base-url: http://localhost:9411/
